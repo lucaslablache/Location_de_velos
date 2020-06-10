@@ -1,0 +1,131 @@
+.custom-absolute
+{
+    width: 100%;
+    position: absolute;
+    z-index: 8;
+}
+
+.img-container
+{
+  top: 0;
+  -webkit-transition: all 2s ease-in;
+  -o-transition: all 2s ease-in;
+  transition: all 2s ease-in;
+}
+
+.slider
+{
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+.divSlider
+{
+    position: relative;
+}
+
+.imgSlider
+{
+    width: 100%;
+}
+
+.texteSlider
+{
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+
+
+  /*text-shadow x20 pour outline le texte*/
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+
+
+.buttonsSliderFB
+{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    z-index: 10;
+}
+
+.buttonForward
+{
+    float: right;
+}
+
+
+.buttonFB
+{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: Dodgerblue;
+    text-shadow: 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white, 0 0 4px white;
+    /* text-shadow:  0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black; */
+}
+
+.buttonSliderPause
+{
+    z-index: 10;
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+
+}
+
+.buttonPause
+{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: Dodgerblue;
+    text-shadow:  0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+
+
+
+#mapContainer
+{
+  height: 500px;
+}
+#infoMarker
+{
+    border: solid 1px grey;
+    border-radius: 8%;
+    height: 100%;
+    /*
+    void
+    */
+}
+
+.footer
+{
+    text-align: center;
+    font-size: 2em;
+}
+
+.d-absolute
+{
+    position: absolute !important;
+}
+.d-relative
+{
+    position: relative !important;
+}
+
+.popUp
+{
+    z-index: 1000;
+    background-color: rgba(0,0,0,.8);
+}
+.buttonLine
+{
+    height: 38px;
+}
+
+.canvas
+{
+    background-color: white;
+}

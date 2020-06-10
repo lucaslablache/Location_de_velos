@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+    <!-- leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+    <title>Location de Vélo</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- slider -->
+        <section class="slider col-lg-12 px-0 pt-3">
+            <div class="divSlider">
+                <div class="img-container d-block">
+                    <img class="imgSlider" src="../images/velo_1_r.jpg" alt="image slider">
+                    <p class="texteSlider">I. Sélectionnez votre station</p>
+                </div>
+                <div class="img-container d-none">
+                    <img class="imgSlider" src="../images/velo_2_r.jpg" alt="image slider">
+                    <p class="texteSlider">II. Remplissez le formulaire</p>
+                </div>
+                <div class="img-container d-none">
+                    <img class="imgSlider" src="../images/velo_3_r.jpg" alt="image slider">
+                    <p class="texteSlider">III. Cliquez sur Réserver</p>
+                </div>
+                <div class="img-container d-none">
+                    <img class="imgSlider" src="../images/velo_4_r.jpg" alt="image slider">
+                    <p class="texteSlider">IV. Signez le canvas</p>
+                </div>
+                <div class="img-container d-none">
+                    <img class="imgSlider" src="../images/velo_5_r.jpg" alt="image slider">
+                    <p class="texteSlider">V. Vous pouvez récupérer votre vélo <br> dans le temps imparti</p>
+                </div>
+            </div>
+            <div class="buttonsSliderFB">
+                <button id="buttonForward" class="buttonForward buttonFB"><i class="fas fa-arrow-circle-right fa-3x"></i></button>
+                <button id="buttonBackward" class="buttonBackward buttonFB"><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+            </div>
+            <div class="buttonSliderPause">
+                <button id="buttonPause" class="buttonPause"><i class="far fa-pause-circle fa-3x"></i></button>
+            </div>
+      	</section>
+        <!-- map + reservation -->
+        <section class="row col-12 py-5 mx-0 px-0">
+            <div class="mapFormContainer col-12 row mx-0 px-0">
+                <!-- map -->
+              <div id="mapContainer" class="col-lg-6 col-sm-12">
+              </div>
+              <!-- reservation -->
+              <div class="col-lg-6 col-sm-12 pt-sm-3 pt-lg-0 pr-lg-0">
+                  <div id="infoMarker" class="text-center d-none px-3 py-sm-3">
+                      <h3 id="titreReservation">Station sélectionnée</h3>
+                      <p id="villeReservation"></p>
+                      <p id="adresseReservation"></p>
+                      <p id="veloReservation"></p>
+                      <h3 id="titreForm">Réservez votre vélo</h3>
+                      <form id="form">
+                          <div class="form-group">
+                            <label>Nom : </label>
+                            <input type="text" class="form-control" id="Nom" placeholder="Votre Nom" required>
+                          </div>
+                          <div class="form-group">
+                            <label>Prénom : </label>
+                            <input type="text" class="form-control" id="Prenom" placeholder="Votre Prénom" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary center-block" id="popSignature">Réserver</button>
+                      </form>
+                  </div>
+              </div>
+            </div>
+            <div class="flex-wrap align-content-center col-lg-12 d-none w-100 h-100 popUp justify-content-center" id="popUp">
+                <div id="signature" class="row col-lg-12 justify-content-center">
+                    <canvas class="canvas" id="signature_" width="400" height="300">
+                    </canvas>
+                </div>
+                <div class="row col-12 justify-content-around buttonLine">
+                    <button type="button" class="btn btn-info center-block" id="clearCanvas">Clear</button>
+                    <button type="button" class="btn btn-success center-block" id="subbmitSignature">Submit</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer py-3">
+        <p id="reservationDisplay"></p>
+    </footer>
+
+    <script src="../js/Slider.js"></script>
+    <script src="../js/Canvas.js"></script>
+    <script src="../js/Formulaire.js"></script>
+    <script src="../js/Station.js"></script>
+    <script src="../js/Map.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

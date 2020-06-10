@@ -1,0 +1,113 @@
+.current {
+    transform: {translateX(0%);}
+}
+
+.moved-left {
+    transform: {translateX(-100%);}
+}
+
+.moved-right {
+     0% transform: {translateX(100%);}
+}
+and a permanent one
+
+.slide {
+    transition: transform 0.5s;
+}
+
+
+
+
+
+
+
+var f = document.getElementById('foo');
+document.addEventListener('click', function(ev){
+    f.style.transform = 'translateY('+(ev.clientY-25)+'px)';
+    f.style.transform += 'translateX('+(ev.clientX-25)+'px)';
+},false);
+
+
+
+
+https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Transitions/Utiliser_transitions_CSS
+
+
+<div id="slider">
+	<div id="slider-wrapper">
+		<div class="slide">
+			<img src="http://lorempixel.com/960/300/sports" alt="" />
+			<p class="caption">Caption 1</p>
+		</div>
+    <div class="slide">
+  		<img src="http://lorempixel.com/960/300/business" alt="" />
+  		<p class="caption">Caption 2</p>
+    </div>
+
+
+
+    #slider {
+	margin: 2em auto;
+	width: 960px;
+	overflow: hidden;
+}
+
+#slider-wrapper {
+	width: 9999px;
+	height: 300px;
+	position: relative;
+	transition: left 400ms linear;
+}
+
+.slide {
+	float: left;
+	width: 960px;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+}
+
+.slide img {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.caption {
+	margin: 0;
+	position: absolute;
+	z-index: 100;
+	bottom: -2em;
+	left: 0;
+	width: 100%;
+	height: 2em;
+	line-height: 2;
+	text-align: center;
+	background: rgba( 0, 0, 0, 0.6 );
+	color: #fff;
+	transition: bottom 500ms ease-in;
+}
+.caption.visible {
+	bottom: 0;
+}
+
+#slider-nav {
+	margin: 1em 0;
+	text-align: center;
+}
+
+#slider-nav a {
+	width: 2em;
+	height: 2em;
+	border: 1px solid #ccc;
+	text-align: center;
+	text-decoration: none;
+	color: #000;
+	display: inline-block;
+	line-height: 2;
+	margin-right: 0.5em;
+}
+
+#slider-nav a.current {
+	border-color: #000;
+}
